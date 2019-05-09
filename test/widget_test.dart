@@ -38,6 +38,11 @@ void main() {
 
     // Verify sentences are separated.
     expect(find.text('You have pushed the button this many times:Text message!'), findsNothing);
+
+    // Verify texts without trailing spaces.
+    expect(find.text('You have pushed the button this many times: '), findsNothing);
+    expect(find.text('Text message!  '), findsNothing);
+
   });
 
 }
