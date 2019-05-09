@@ -27,4 +27,17 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  testWidgets('Test text on main page', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    // Verify texts.
+    expect(find.text('You have pushed the button this many times:'), findsOneWidget);
+    expect(find.text('Text message!'), findsOneWidget);
+
+    // Verify sentences are separated.
+    expect(find.text('You have pushed the button this many times:Text message!'), findsNothing);
+  });
+
 }
